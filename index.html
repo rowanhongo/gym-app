@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitFlow - Gym Management System</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        // Check if the page has been loaded before
+        if (!localStorage.getItem('visited')) {
+            // Redirect to login.html if not already visited
+            if (window.location.pathname === "/" || window.location.pathname === "/index.html") {
+                window.location.replace("/login.html");
+            }
+            // Set 'visited' flag in localStorage
+            localStorage.setItem('visited', 'true');
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="back-button-container">
+            <button onclick="window.location.href='login.html'" class="back-button">← Back</button>
+        </div>
+        <div class="logo-container">
+            <img src="assets/dumbbell-icon.svg" alt="FitFlow Logo" class="logo">
+            <h1>FitFlow</h1>
+        </div>
+
+        <div id="loginForm">
+            <h2>Staff Login</h2>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="staff@example.com" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+            </div>
+            <button type="button" id="loginBtn" class="primary-button">Login</button>
+            <p id="loginErrorMessage" class="error-message" style="display: none;">❌ Login failed. Please check your credentials.</p>
+        </div>
+
+        <form id="signupForm" style="display: none;">
+            <h2>Register New Member</h2>
+            <label id="usernameDisplay" class="staff-label"></label>
+            
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="Enter member's full name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="text" id="phone" placeholder="Enter 10-digit phone number" required 
+                       oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+            </div>
+            
+            <div class="form-group">
+                <label for="subscription">Subscription Type</label>
+                <select id="subscription" required>
+                    <option value="daily">Daily Pass</option>
+                    <option value="weekly">Weekly Plan</option>
+                    <option value="monthly">Monthly Plan</option>
+                    <option value="quarterly">Quarterly Plan</option>
+                    <option value="annually">Annual Plan</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="start_date">Start Date</label>
+                <input type="date" id="start_date" required>
+            </div>
+            
+            <p id="dateErrorMessage" class="error-message" style="display: none;">❌ Please select today or a future date.</p>
+            
+            <div class="form-group">
+                <label for="expiry_date">Expiry Date</label>
+                <input type="date" id="expiry_date" disabled>
+            </div>
+            
+            <div class="button-group">
+                <button type="button" id="registerBtn">Register Member</button>
+                <button type="button" id="logoutBtn">Logout</button>
+                <!-- Added View Members button -->
+                <button type="button" onclick="window.location.href='members.html'" class="primary-button">View Members</button>
+            </div>
+            
+            <p id="signupSuccessMessage" class="success-message" style="display: none;"></p>
+            <p id="signupErrorMessage" class="error-message" style="display: none;"></p>
+        </form>
+    </div>
+    <script type="module" src="app.js"></script>
+</body>
+</html>

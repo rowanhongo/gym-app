@@ -1,0 +1,369 @@
+:root {
+    --primary-color: #3B82F6;
+    --secondary-color: #1D4ED8;
+    --background-color: #F3F4F6;
+    --text-primary: #1F2937;
+    --text-secondary: #4B5563;
+    --white: #FFFFFF;
+    --error-color: #DC2626;
+    --success-color: #059669;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.welcome-page {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/gym-background.jpg');
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
+}
+
+.container {
+    width: 100%;
+    max-width: 1000px; /* Increase max-width for larger tables */
+    padding: 2rem;
+    background: var(--white);
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-container {
+    background: transparent;
+    box-shadow: none;
+    text-align: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: inherit;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: inherit;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #E5E7EB;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.primary-button, .secondary-button {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.primary-button {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.secondary-button {
+    background-color: transparent;
+    border: 2px solid var(--white);
+    color: var(--white);
+}
+
+.primary-button:hover {
+    background-color: var(--secondary-color);
+}
+
+.secondary-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.back-button-container {
+    margin-bottom: 1rem;
+}
+
+.back-button {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.error-message {
+    color: var(--error-color);
+    text-align: center;
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background-color: #FEE2E2;
+    border-radius: 0.5rem;
+}
+
+/* Add responsive design */
+@media (max-width: 640px) {
+    .container {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+}
+
+/* Specific Styling for Members Page */
+.members-page .small-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    background-color: var(--primary-color); /* Make the small buttons blue */
+    color: var(--white);
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.members-page .small-button:hover {
+    background-color: var(--secondary-color);
+}
+
+.members-page .styled-table {
+    width: 100%;
+    max-width: 100%; /* Ensure table spans the full width */
+    margin: 20px auto;
+    border-collapse: collapse;
+    font-size: 16px;
+    text-align: left;
+    border: 1px solid #ddd;
+    background-color: var(--white);
+    overflow-x: auto; /* Add horizontal scroll for responsiveness */
+}
+
+.members-page .styled-table thead {
+    background-color: var(--white);
+    color: var(--text-primary);
+}
+
+.members-page .styled-table th,
+.members-page .styled-table td {
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+}
+
+.members-page .styled-table tbody tr {
+    border-bottom: 1px solid #ddd;
+}
+
+.members-page .styled-table tbody tr:nth-of-type(even) {
+    background-color: #f9f9f9;
+}
+
+.members-page .styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.tables-container {
+    width: 100%;
+    overflow-x: auto; /* Add horizontal scroll for responsiveness */
+}
+
+/* Member Profile Specific Styles */
+.member-profile {
+    display: flex;
+    background-color: #f0f2f5;
+    min-height: 100vh;
+    padding: 0;
+}
+
+.content-container {
+    display: flex;
+    width: 100%;
+}
+
+.profile-section {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.sidebar {
+    width: 80px;
+    background-color: #1e3a5f;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav-item {
+    width: 100%;
+    padding: 15px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.nav-item.active {
+    background-color: #2c4b76;
+}
+
+.nav-item .icon {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.logout {
+    margin-top: auto;
+}
+
+.profile-header {
+    background-color: #2c4b76;
+    border-radius: 10px;
+    padding: 30px;
+    color: white;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.profile-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.member-details h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.member-since {
+    color: #a0aec0;
+    margin: 5px 0;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 15px;
+    background-color: #48bb78;
+    color: white;
+    font-size: 0.8rem;
+}
+
+@media (max-width: 768px) {
+    .member-profile {
+        flex-direction: column;
+    }
+
+    .content-container {
+        flex-direction: column;
+    }
+
+    .profile-section {
+        margin-right: 0;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        padding: 10px;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .nav-item {
+        padding: 10px;
+    }
+
+    .nav-item span {
+        display: none;
+    }
+
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-info {
+        flex-direction: column;
+    }
+}
+/* Additional styles for booking section */
+.booking-section {
+    margin-top: 20px;
+}
+
+.booked-class-item {
+    padding: 10px;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: var(--background-color);
+}

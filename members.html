@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registered Members</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Firebase SDK (Modular approach) -->
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+</head>
+<body class="members-page">
+
+    <div class="container">
+        <h1>Registered Members</h1>
+        <button onclick="window.location.href='index.html'" class="small-button">Back to Signup</button>
+
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search by name or phone number">
+            <button class="small-button" onclick="searchMembers()">Search</button>
+            <button class="small-button" onclick="clearSearch()">Clear</button> <!-- Clear Button -->
+        </div>
+
+        <!-- Dropdown Menu to Switch Between Tables -->
+        <div class="dropdown">
+            <select id="tableSelector" onchange="switchTable()">
+                <option value="membersTable">Members</option>
+                <option value="expiredUsersTable">Expired Members</option>
+            </select>
+        </div>
+        
+        <!-- Display Section for User Credentials or Error Message -->
+        <div id="userDetails" class="user-details"></div>
+
+        <!-- Display Section for Total Counts -->
+        <div id="totalMembersCount" class="total-counts"></div>
+        <div id="expiredMembersCount" class="total-counts"></div>
+
+        <div class="tables-container">
+            <!-- Registered Members Table -->
+            <table id="membersTable" class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Subscription</th>
+                        <th>Start Date</th>
+                        <th>Expiry Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="membersTableBody"></tbody>
+            </table>
+
+            <!-- Expired Users Table -->
+            <table id="expiredUsersTable" class="styled-table" style="display:none;">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Subscription</th>
+                        <th>Start Date</th>
+                        <th>Expiry Date</th>
+                        <th>Status</th>
+                        <th>Actions</th> <!-- Add Actions column -->
+                    </tr>
+                </thead>
+                <tbody id="expiredUsersTableBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Using external script for better maintainability -->
+    <script type="module" src="members.js"></script>
+
+    <script>
+        function switchTable() {
+            const selector = document.getElementById("tableSelector");
+            const membersTable = document.getElementById("membersTable");
+            const expiredUsersTable = document.getElementById("expiredUsersTable");
+
+            if (selector.value === "membersTable") {
+                membersTable.style.display = "table";
+                expiredUsersTable.style.display = "none";
+            } else {
+                membersTable.style.display = "none";
+                expiredUsersTable.style.display = "table";
+            }
+        }
+    </script>
+</body>
+</html>

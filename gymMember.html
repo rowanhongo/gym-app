@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Profile - FitFlow</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="member-profile">
+    <div class="container">
+        <!-- Login Form -->
+        <div id="loginForm">
+            <!-- Back Button -->
+            <div class="back-button-container">
+                <button onclick="window.location.href='login.html'" class="back-button">← Back</button>
+            </div>
+            <h2>Member Login</h2>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" placeholder="Enter your phone number" required>
+            </div>
+            <button id="loginBtn" class="primary-button">Login</button>
+            <p id="loginErrorMessage" class="error-message" style="display: none;">❌ Login failed. Please check your phone number.</p>
+        </div>
+
+        <!-- Member Content (Initially Hidden) -->
+        <div id="memberContent" class="content-container" style="display: none;">
+            <div class="profile-section">
+                <div class="profile-header">
+                    <div class="profile-info">
+                        <img src="https://placekitten.com/100/100" alt="Profile" class="profile-image">
+                        <div class="member-details">
+                            <h1 id="memberName"></h1>
+                            <p class="subscription-type">Subscription Type: <span id="subscriptionType"></span></p>
+                            <p class="start-date">Start Date: <span id="startDate"></span></p>
+                            <p class="expiry-date">Expiry Date: <span id="expiryDate"></span></p>
+                            <div class="status-badge active">Active</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Booking Section -->
+                <div class="booking-section">
+                    <h2>Book a Class</h2>
+                    <form id="bookingForm">
+                        <div class="form-group">
+                            <label for="classSelect">Class</label>
+                            <select id="classSelect" required></select>
+                        </div>
+                        <button type="submit" class="primary-button">Book Class</button>
+                        <p id="bookingSuccessMessage" class="success-message" style="display: none;">✔️ Class booked successfully!</p>
+                        <p id="bookingErrorMessage" class="error-message" style="display: none;">❌ Failed to book class. Please try again.</p>
+                    </form>
+                    <h2>Booked Classes</h2>
+                    <div id="bookedClassesList"></div>
+                </div>
+                <!-- End Booking Section -->
+            </div>
+            <div class="sidebar">
+                <nav>
+                    <div class="nav-item active">
+                        <i class="icon">👤</i>
+                        <span>Profile</span>
+                    </div>
+                    <div class="nav-item">
+                        <i class="icon">💰</i>
+                        <span>Billing</span>
+                    </div>
+                    <div class="nav-item">
+                        <i class="icon">✓</i>
+                        <span>Check-in</span>
+                    </div>
+                    <div class="nav-item">
+                        <i class="icon">📊</i>
+                        <span>Ranks</span>
+                    </div>
+                    <div class="nav-item">
+                        <i class="icon">📅</i>
+                        <span>Schedule</span>
+                    </div>
+                    <div class="nav-item">
+                        <i class="icon" id="documentsIcon">📄</i>
+                        <span>Documents</span>
+                    </div>
+                    <div class="nav-item">
+                        <i class="icon">✉️</i>
+                        <span>Contact</span>
+                    </div>
+                    <div class="nav-item logout">
+                        <i class="icon">🚪</i>
+                        <span>Log out</span>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="gymMember.js"></script>
+</body>
+</html>
